@@ -1,0 +1,12 @@
+[submodule "jina-embedding-b-en-v1"]
+	path = jina-embedding-b-en-v1
+	url = https://huggingface.co/jinaai/jina-embedding-b-en-v1
+[submodule "jina-embedding-l-en-v1"]
+	path = jina-embedding-l-en-v1
+	url = https://huggingface.co/jinaai/jina-embedding-l-en-v1
+[submodule "jina-embedding-s-en-v1"]
+	path = jina-embedding-s-en-v1
+	url = https://huggingface.co/jinaai/jina-embedding-s-en-v1
+[submodule "jina-embedding-t-en-v1"]
+	path = jina-embedding-t-en-v1
+	url = https://huggingface.co/jinaai/jina-embedding-t-en-v1
