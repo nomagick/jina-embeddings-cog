@@ -10,3 +10,15 @@
 [submodule "jina-embedding-t-en-v1"]
 	path = jina-embedding-t-en-v1
 	url = https://huggingface.co/jinaai/jina-embedding-t-en-v1
+[submodule "jina-embeddings-v2-base-en"]
+	path = jina-embeddings-v2-base-en
+	url = https://huggingface.co/jinaai/jina-embeddings-v2-base-en
+[submodule "jina-embeddings-v2-small-en"]
+	path = jina-embeddings-v2-small-en
+	url = https://huggingface.co/jinaai/jina-embeddings-v2-small-en
+[submodule "jina-embedding-v2"]
+	path = jinaai/jina-embedding-v2
+	url = https://huggingface.co/jinaai/jina-embedding-v2
+[submodule "jinaai/jina-embedding-v2"]
+	path = jinaai/jina-embedding-v2
+	url = https://huggingface.co/jinaai/jina-embedding-v2

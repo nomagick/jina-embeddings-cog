@@ -18,7 +18,8 @@ for entry in os.scandir(current_dir):
 from cog import BasePredictor, Input, Path, ConcatenateIterator
 
 from typing import List, Union
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
+from transformers import AutoModel
 import json
 import base64
 
@@ -43,7 +44,8 @@ class Predictor(BasePredictor):
         self.models = dict()
         for mdl in MODELS:
             print(f"Found model: {mdl}")
-            self.models[mdl] = SentenceTransformer(mdl).cuda().eval()
+            # self.models[mdl] = SentenceTransformer(mdl).cuda().eval()
+            self.models[mdl] = AutoModel.from_pretrained(mdl, trust_remote_code=True, local_files_only=True).cuda().eval()
 
     def predict(
         self,
