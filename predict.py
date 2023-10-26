@@ -44,7 +44,6 @@ class Predictor(BasePredictor):
         self.models = dict()
         for mdl in MODELS:
             print(f"Found model: {mdl}")
-            # self.models[mdl] = SentenceTransformer(mdl).cuda().eval()
             self.models[mdl] = AutoModel.from_pretrained(mdl, trust_remote_code=True, local_files_only=True).cuda().eval()
 
     def predict(
