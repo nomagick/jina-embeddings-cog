@@ -20,7 +20,6 @@ from cog import BasePredictor, Input, Path, ConcatenateIterator
 from typing import List, Union
 # from sentence_transformers import SentenceTransformer
 from transformers import AutoModel
-import json
 import base64
 
 
@@ -52,12 +51,12 @@ class Predictor(BasePredictor):
             description="Embedding model", choices=MODELS, default=MODELS[-1]
         ),
         text: str = Input(
-            description="Text content to embed",
+            description="Text content(s) to embed",
             default="",
         ),
-        json_text: str = Input(
-            description="Text content(s) to embed in JSON format",
-            default="",
+        text_sep: str = Input(
+            description="Text separator to split `text` into an array",
+            default="\n\n",
         ),
         output_format: str = Input(
             description="Format to use in outputs",
@@ -69,10 +68,10 @@ class Predictor(BasePredictor):
 
         map_func = FORMATS_MAP[output_format]
 
-        if json_text:
-            parsed = json.loads(json_text)
-            if type(parsed) == str:
-                return map_func(self.models[model].encode([parsed]))
-            return map_func(self.models[model].encode(parsed))
+        if text_sep:
+            texts = text.split(text_sep)
+            if len(texts):
+                return map_func(self.models[model].encode(texts))
+            return map_func(self.models[model].encode([text]))
 
         return map_func(self.models[model].encode([text]))
